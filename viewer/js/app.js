@@ -82,9 +82,14 @@
   const start = hashPage();
   ensureAround(start);
 
+  /* movil en horizontal (poca altura): permite paginas mas pequenas; al girar el telefono se recarga la pagina (conserva #p=) */
+  const SHORT = innerHeight <= 500;
+  addEventListener('orientationchange', () => setTimeout(() => { if ((innerHeight <= 500) !== SHORT) location.reload(); }, 350));
+  addEventListener('resize', () => { if ((innerHeight <= 500) !== SHORT) { clearTimeout(window.__rl); window.__rl = setTimeout(() => location.reload(), 400); } });
+
   const flip = new St.PageFlip(bookEl, {
     width: 699, height: 1000, size: 'stretch',
-    minWidth: 240, maxWidth: 900, minHeight: 343, maxHeight: 1288,
+    minWidth: SHORT ? 150 : 240, maxWidth: 900, minHeight: SHORT ? 214 : 343, maxHeight: 1288,
     showCover: true, usePortrait: true, startPage: start,
     drawShadow: true, maxShadowOpacity: .45, flippingTime: reduceMotion ? 250 : 750,
     mobileScrollSupport: false, clickEventForward: true, useMouseEvents: true,
