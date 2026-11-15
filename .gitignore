@@ -1,0 +1,18 @@
+# Originales pesados (exports de Canva y zip fuente); no hacen falta para publicar
+assets/source/
+assets/pages/
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
+*:Zone.Identifier
+.vscode/
+.idea/
+
+# Temporales
+_tmp*/
+*.tmp
+*.log
+node_modules/
+__pycache__/

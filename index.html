@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Llampayec · Revista cultural musical · Edición Nº 01</title>
+  <meta name="description" content="Llampayec, revista cultural musical de Lambayeque, Perú. Edición Nº 01, noviembre 2026. Versión interactiva.">
+  <meta name="theme-color" content="#1a110d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a110d'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='700' text-anchor='middle' fill='%23c98f45'%3EL%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="viewer/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><strong>Llampayec</strong><span>Edición Nº 01 · Noviembre 2026</span></div>
+    <button class="btn" id="btn-toc" type="button" aria-expanded="false" aria-controls="toc">☰ <span class="lbl">Índice</span></button>
+    <button class="btn" id="btn-zoom" type="button">⤢ <span class="lbl">Ampliar</span></button>
+    <button class="btn" id="btn-full" type="button">⛶ <span class="lbl">Pantalla completa</span></button>
+  </header>
+
+  <main id="stage">
+    <button class="nav prev" id="nav-prev" type="button" aria-label="Página anterior">‹</button>
+    <div id="book" aria-label="Revista Llampayec"></div>
+    <button class="nav next" id="nav-next" type="button" aria-label="Página siguiente">›</button>
+    <noscript><p class="noscript">Esta revista necesita JavaScript activado para mostrarse.</p></noscript>
+  </main>
+
+  <footer class="bar">
+    <button class="btn" id="btn-first" type="button" aria-label="Ir a la portada">⏮</button>
+    <button class="btn" id="btn-prev" type="button" aria-label="Página anterior">◀</button>
+    <div class="progress">
+      <span id="page-label" aria-live="polite">Portada</span>
+      <input id="slider" type="range" min="1" max="33" value="1" aria-label="Ir a la página">
+    </div>
+    <button class="btn" id="btn-next" type="button" aria-label="Página siguiente">▶</button>
+    <button class="btn" id="btn-last" type="button" aria-label="Ir a la última página">⏭</button>
+  </footer>
+
+  <aside id="toc" class="drawer" hidden aria-label="Índice de la revista">
+    <div class="drawer-head"><strong>Índice</strong><button class="btn" id="toc-close" type="button" aria-label="Cerrar índice">✕</button></div>
+    <div id="toc-body"></div>
+  </aside>
+
+  <div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Vista ampliada">
+    <button class="btn lb-close" id="lb-close" type="button" aria-label="Cerrar">✕</button>
+    <div id="lb-content"></div>
+  </div>
+
+  <script src="vendor/page-flip.browser.js"></script>
+  <script src="viewer/js/media.config.js"></script>
+  <script src="viewer/js/app.js"></script>
+</body>
+</html>
